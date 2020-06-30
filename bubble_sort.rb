@@ -1,6 +1,8 @@
 def bubble_sort(unsorted_array)
-    for i in unsorted_array.length-1 do
-        for m in unsorted_array.length-1 do
+    i=0
+    for i in i..unsorted_array.length-2 do
+        m=0
+        for m in m..unsorted_array.length-2-i do
             if unsorted_array[m] > unsorted_array[m+1]
                 unsorted_array[m+1], unsorted_array[m] = unsorted_array[m], unsorted_array[m+1]
             end
