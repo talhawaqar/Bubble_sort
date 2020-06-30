@@ -1,12 +1,8 @@
 def bubble_sort(unsorted_array)
-  i = 0
-  for i in i..unsorted_array.length - 2 do
-    m = 0
-    for m in m..unsorted_array.length - 2 - i do
+  (0..unsorted_array.length - 2).each do |i|
+    (0..unsorted_array.length - 2 - i).each do |m|
       if unsorted_array[m] > unsorted_array[m + 1]
-        temp = unsorted_array[m + 1]
-        unsorted_array[m + 1] = unsorted_array[m]
-        unsorted_array[m] = temp
+        unsorted_array[m + 1], unsorted_array[m] = unsorted_array[m], unsorted_array[m + 1]
       end
     end
   end
@@ -18,20 +14,16 @@ unsorted_array = [1, 5, 7, 2, 9]
 bubble_sort unsorted_array
 
 def bubble_sort_by(unsorted_array)
-  i = 0
-  for i in i..unsorted_array.length - 2 do
-    m = 0
-    for m in m..unsorted_array.length - 2 - i do
+  (0..unsorted_array.length - 2).each do |i|
+    (0..unsorted_array.length - 2 - i).each do |m|
       if yield(unsorted_array[m], unsorted_array[m + 1]).positive?
-        temp = unsorted_array[m + 1]
-        unsorted_array[m + 1] = unsorted_array[m]
-        unsorted_array[m] = temp
+        unsorted_array[m + 1], unsorted_array[m] = unsorted_array[m], unsorted_array[m + 1]
       end
     end
   end
   print unsorted_array
 end
 
-bubble_sort_by(['hi', 'hello', 'hey']) do |left, right|
+bubble_sort_by(%w[hi hello hey]) do |left, right|
   left.length - right.length
 end
