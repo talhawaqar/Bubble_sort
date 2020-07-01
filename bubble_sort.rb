@@ -6,12 +6,12 @@ def bubble_sort(unsorted_array)
       end
     end
   end
-  print unsorted_array.to_s + "\n"
+  unsorted_array
 end
 
 unsorted_array = [1, 5, 7, 2, 9]
 
-bubble_sort unsorted_array
+print bubble_sort unsorted_array
 
 def bubble_sort_by(unsorted_array)
   (0..unsorted_array.length - 2).each do |i|
@@ -21,9 +21,7 @@ def bubble_sort_by(unsorted_array)
       end
     end
   end
-  print unsorted_array
+  unsorted_array
 end
 
-bubble_sort_by(%w[hi hello hey]) do |left, right|
-  left.length - right.length
-end
+print bubble_sort_by(%w[hi hello hey]) { |left, right| left.length - right.length }
